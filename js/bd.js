@@ -25,23 +25,19 @@ var verificarVersion = function (tx, results) {
 					
 					$.ajax({
 					contentType: "json",
-					url: "http://cmaltda.com/approsa/json/vivemujer.php",
+					url: "http://www.medellin.gov.co/api/v1/vivemujer/listado.json",
 					success: function(result){
-						data = jQuery.parseJSON(result);
-						actualizarBD(data);
+						actualizarBD(result);
 					},
 					error: function(XMLHttpRequest, textStatus, errorThrown) {
 					   
-					    alert('Necesita conexión a internet = ' + textStatus);
-					
-						if(primeraVez==true)
+					    	if(primeraVez==true)
 					    {
 					    	$.ajax({
 								contentType: "json",
 								url: "default.bd",
 								success: function(results3){
 									data = jQuery.parseJSON(results3);
-
 									actualizarBD(data);
 								}
 							});
@@ -60,13 +56,13 @@ var verificarVersion = function (tx, results) {
 var actualizarBD = function(json){
 		conexion.transaction(function(tx)
 		{
-			tiposLugar = json['TipoLugar'];
-			lugares = json['Lugar'];
-			categoriasTip = json['CategoriaTip'];
-			rutas = json['Ruta'];
-			tips = json['Tip'];
-			tiposDirectorio = json['TipoDirectorio'];
-			directorios = json['Directorio'];
+			tiposLugar = json['tipolugar'];
+			lugares = json['lugar'];
+			categoriasTip = json['categoriatip'];
+			rutas = json['ruta'];
+			tips = json['tip'];
+			tiposDirectorio = json['tipodirectorio'];
+			directorios = json['directorio'];
 
 			sentenciasEliminarTablas = new Array
 			(
@@ -78,8 +74,7 @@ var actualizarBD = function(json){
 				"DROP TABLE IF EXISTS CategoriaTip",
 				"DROP TABLE IF EXISTS Ruta",
 				"DROP TABLE IF EXISTS Version"
-			);
-			
+			);		
 			
 			sentenciasTablas = new Array
 			(
