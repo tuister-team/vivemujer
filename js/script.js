@@ -2,19 +2,77 @@ $(function(){
 			
 	$("form#formReportar").on("submit", function(e){
 		e.preventDefault();
-		var formData = $(this).serializeArray();
-		url = $(this).attr('action');
-		/*
-	    $.post(url, formData, function(jsonData) {
-
-			});
-		}
-		*/
-		$.mobile.changePage("#inicio", {transition: "pop"});
-		alert("Gracias por su aporte");
-		return false;
 		
+		//if(navigator.geolocation) //if(navigator.connection.type != Connection.NONE){
+		//{
+		    
+    		navigator.geolocation.getCurrentPosition(
+    			function(posicion)
+    			{
+    				reportar(posicion.coords.latitude, posicion.coords.longitude);
+    
+    			},
+    			function()
+    			{
+    				reportar("6.246108", "-75.575136");
+    			}
+    		);		
+    	/*
+    	}
+		else{
+    	       alert("Necesita conexión a internet");
+    	}
+    	*/
+
+	return false;
+	
 	});
+
+	function reportar(latitud, longitud)
+	{
+		$.mobile.loading( 'show', {
+		  text: 'Validando',
+		  textVisible: true,
+		  theme: 'a',
+		  textonly: false,
+		  html: "Enviando reporte"}
+		  );
+
+		$form = $("form#formReportar");
+		url = $form.attr('action');
+		var fecha = getFecha()+"T"+getHora();
+		sexo = ($("#radioFemenino").is(":checked"))?"F":"M";
+		var descripcion = $("#reportar_descripcion").val();
+
+		$.ajax({
+			url: url,
+			type: "POST",
+			dataType: 'jsonp',
+			crossDomain: true,
+			data: {
+				telefonoContacto: $("#reportar_telefono").val(),
+				direccionContacto: $("#reportar_direccion").val(),
+				SexoContacto: sexo,
+				LatitudReporte: latitud,
+				LongitudReporte: longitud,
+				fechaReporte: fecha,
+				descripcion: descripcion
+				},
+			success:function(data,status)
+			{
+				$.mobile.loading( 'hide');
+				alert(data.mensaje);
+
+			},
+			error: function(result) {
+                   alert("Verifique su conexión a internet");
+                }
+		});
+
+		$.mobile.changePage("#inicio", {transition: "pop"});
+		
+	}
+
 	
 	
 	$("a#btnNavbarGeneral").on('click', function()
@@ -32,7 +90,6 @@ $(function(){
 	$(document).on('click', "a.irRuta", function(e){
 			e.preventDefault();
 			var idRuta = $(this).attr('data-ruta');
-			alert
 			conexion.transaction(function(tx)
 			{
 				$.mobile.loading('show');
@@ -122,14 +179,43 @@ $(function(){
 	return false;
 	});
 
-	//Fecha Actual
-	now = new Date();
-    month = (now.getMonth() + 1);               
-    day = now.getDate();
-    if(month < 10) 
-        month = "0" + month;
-    if(day < 10) 
-        day = "0" + day;
-    today = now.getFullYear() + '-' + month + '-' + day;
-	$("#fechaReportar").val(today);
+    
+	function getFecha()
+	{
+		//Fecha Actual
+		now = new Date();
+	    month = (now.getMonth() + 1);               
+	    day = now.getDate();
+
+	    
+	    if(month < 10) 
+	        month = "0" + month;
+	    if(day < 10) 
+	        day = "0" + day;
+	    
+	    fechaActual = now.getFullYear() + '-' + month + '-' + day;
+	    return fechaActual;
+	}
+
+	function getHora()
+	{
+
+		now = new Date();
+		hours = now.getHours();
+	    minutes = now.getMinutes();
+	    seconds = now.getSeconds();
+
+	    if(hours < 10) 
+	        hours = "0" + hours;
+	    if(minutes < 10) 
+	        minutes = "0" + hours;
+	    if(seconds < 10) 
+	        seconds = "0" + hours;
+
+	    horaActual = hours + ':' + minutes + ':' + seconds + ".000";
+	    return horaActual;
+	}
+
+	$("#reportar_fechaReportar").val(getFecha());
+
 });

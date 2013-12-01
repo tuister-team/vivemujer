@@ -12,12 +12,16 @@
 <body>
   	<!-- -------------------------------------------INICIO ------------------- -->
 
-  		<div data-role="page" id="inicio" data-theme="d" data-title="Inicio">
-			<div data-role="header" id="banner" data-theme="c" style="max-height:100px; overflow:auto">
-				
-				<img src="img/banner.jpg" style="max-width:300px; width:100%; float: right; margin:0;"/>
+  	<div data-role="page" id="inicio" data-theme="d" data-title="Inicio">
+    <a href="#acercade" data-rel="dialog" data-transition="pop">
+	<div data-role="header" id="banner" data-theme="c" style="max-height:100px; overflow:auto">
+	
+      <img src="img/banner.jpg" style="max-width:300px; width:100%; float: right; margin:0;"/>
+      
+                
 				
 			</div>
+            </a>
 			<div data-role="content" data-theme="d">
 				<div class="center-wrapper" id="opcionesPrincipales">
 					<div class="ui-grid-solo clear" >
@@ -83,6 +87,35 @@
 		</div>
 	</div>
 
+	<div data-role="page" id="acercade">
+		<div data-role="header" data-theme="m" id="banner">
+			<h3>Acerca de</h3>
+		</div>
+		<div data-role="content" data-theme="c" style="text-align:center; font-weight: 600;
+font-size: 15px; color: rgb(2, 75, 74);">
+	
+			<a href="#" data-role="button" data-theme="m" class="botonRojo">Vive mujer</a>
+           V 1.0
+           <a href="#" data-role="button" data-theme="m" class="botonRojo">Secretaria de las mujeres Medellín</a>
+            
+        ©2013 - Derechos reservados <br>
+        
+        Tenga en cuenta que esta aplicación requiere acceso a internet y puede consumir recursos de su plan de datos
+				<fieldset class="ui-grid-solo">
+						                            <img src="img/medellin.png" style="width:25%"/>
+<img src="img/mintic.png" style="width:70%"/>
+ 
+					</fieldset>
+                    <fieldset>
+                    Autores:<br/>
+                    Vidal Javier Ramirez Mendoza <br/>
+                    Gabriel Fernando Neira Bermudez <br/> 
+                    Carlos Alberto Contreras<br />
+                    tUISter team  <br />
+                    tuister.team@gmail.com                  
+                    </fieldset>      
+		</div>
+	</div>
 	<!-- -------------------------------------------REPORTAR ------------------- -->
 
 			<div data-role="page" id="reportar" data-title="Reportar">
@@ -91,26 +124,26 @@
 				<h3>REPORTAR</h3>
 			</div>
 			<div data-role="content" data-theme="d">
-				<form id="formReportar" method="post">
+				<form id="formReportar" method="post" action="http://www.medellin.gov.co/api/v1/vivemujer/guardar.json">
 					<fieldset class="center-wrapper">
 						<h4>Fecha</h4>
-						<input type="date" id="fechaReportar">
+						<input type="date" id="reportar_fechaReportar" disabled>
 						<h4>Teléfono (fijo o movil) de contacto</h4>
-						<input type="text" name="telefono" value=""/>
+						<input type="tel" id="reportar_telefono" value=""/>
 						<h4>Dirección o lugar donde ocurre el hecho </h4>
-						<input type="text" name="direccion" required="true"/>
+						<input type="text" name="reportar_direccion" value=""/>
 							<h4 class="titulo" >Sexo </h4>
-							<fieldset class="center-wrapper" data-role="controlgroup" data-type="horizontal">
-									<input type="radio" name="radioSexo" id="radioFemenino" value="f" checked="checked" />
-									<label for="radioFemenino">Femenino</label>
-									<input type="radio" name="radioSexo" id="radioMasculino" value="m"  />
-									<label for="radioMasculino">Masculino</label>
+							<fieldset data-role="controlgroup" data-type="horizontal">
+								<input type="radio" name="radioSexo" id="radioFemenino" value="F" checked="checked" />
+								<label for="radioFemenino">Femenino</label>
+								<input type="radio" name="radioSexo" id="radioMasculino" value="M"  />
+								<label for="radioMasculino">Masculino</label>
 							</fieldset>
 							<h4 class="titulo" >En tus palabras describe el hecho o suceso </h4>
-							<textarea id="descripcion" name="descripcion" required="true" rows="4"></textarea>
+							<textarea id="reportar_descripcion" name="descripcion" rows="4"></textarea>
 					<fieldset class="ui-grid-a">
 							<div class="ui-block-a"><a href="#inicio" data-role="button" data-theme="c" data-rel="back">Cancelar</a></div>	
-							<div class="ui-block-b"><a href="#" onclick="$('#formReportar').submit()" data-role="button" data-theme="m" class="botonAzul">Reportar</a>  </div>
+							<div class="ui-block-b"><button type="button" onclick="$('#formReportar').submit()" data-role="button" data-theme='b' class="botonAzul">Reportar</a>  </div>
 					</fieldset>
 				</form>
 			</div>	
@@ -178,7 +211,8 @@
 	<script type="text/javascript" src="js/plugins/ui/jquery.ui.map.overlays.js"></script>
 	<script type="text/javascript" src="js/plugins/underscore-min.js"></script>
 	<script type="text/javascript" src="js/plugins/backbone-min.js"></script>
-	<script type="text/javascript" charset="utf-8" src="cordova-1.9.0.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	<script type="text/javascript" charset="utf-8" src="phonegap-toast.js"></script>
 		
 	<script type="text/javascript" src="js/bd.js"></script>
 	<script type="text/javascript" src="js/mapas.js"></script>
@@ -191,7 +225,7 @@
 		function deviceready()
 		{
 			$.mobile.loader.prototype.options.text = "cargando";
-		  	$.mobile.loader.prototype.options.textVisible = false;
+		  	$.mobile.loader.prototype.options.textVisible = true;
 		  	$.mobile.loader.prototype.options.theme = "a";
 		  	$.mobile.loader.prototype.options.html = "";
 
