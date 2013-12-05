@@ -51,36 +51,61 @@ $(document).on('click', '.irMapa a', function(event) {
 
                 tx.executeSql(sql,[], function(tx, result)
                 {
-                        
-                    if (result != null && result.rows != null) {
-                    
-                        len=result.rows.length;
-                        $map =  $('#map_canvas');
-                        $map.gmap('clear', 'markers');
+                       
+                    if (result != null && result.rows != null && result.rows.length>0)
+                    {
+                        try
+                        {
+                            $.mobile.loading( 'show', {
+                                text: "Cargando ubicaciones",
+                                textVisible: true,
+                                theme: "a",
+                                textonly: false,
+                                html: ""
+                            });
 
-                        for (i = 0; i < len; i++) {
-                          row = result.rows.item(i);
+                            len=result.rows.length;
+                            $map =  $('#map_canvas');
+                            $map.gmap('clear', 'markers');
 
-                          if(row.latitudLugar != null && row.longitudLugar != null)
-                          {
-                            var position = new google.maps.LatLng(row.latitudLugar, row.longitudLugar);
-                            var content = "";
-                            content += "<h2 class='ui-li-heading'>" + row.nombreLugar + "</h2>";
-                            if(row.direccionLugar!=null)
+                            for (i = 0; i < len; i++)
                             {
-                                content += "<p class='ui-li-desc'><strong>"+ row.direccionLugar+ "</p>";
-                            }
-                            if(row.telefonosLugar!=null)
-                            {
-                                content += "<p class='ui-li-desc'>"+row.telefonosLugar +"</p>";
+
+                                  row = result.rows.item(i);
+
+                                  if(row.latitudLugar != "null" && row.longitudLugar != "null")
+                                    {
+                                        alert(row.latitudLugar + "..." + row.longitudLugar);
+                                        var position = new google.maps.LatLng(row.latitudLugar, row.longitudLugar);
+                                        var content = "";
+                                        content += "<h2 class='ui-li-heading'>" + row.nombreLugar + "</h2>";
+                                        if(row.direccionLugar!=null)
+                                        {
+                                            content += "<p class='ui-li-desc'><strong>"+ row.direccionLugar+ "</p>";
+                                        }
+                                        if(row.telefonosLugar!=null)
+                                        {
+                                            content += "<p class='ui-li-desc'>"+row.telefonosLugar +"</p>";
+                                        }
+
+                                        $map.gmap('addMarker', {'position': position, 'bounds': true}).click(function() {
+                                                        $('#map_canvas').gmap('openInfoWindow', { 'content': content }, this);
+                                                });
+                                    }
+                                    
                             }
 
-                            $map.gmap('addMarker', {'position': position, 'bounds': true}).click(function() {
-                                            $('#map_canvas').gmap('openInfoWindow', { 'content': content }, this);
-                                    });
-                            }
-                        
+                             $.mobile.loading( 'hide' );
                         }
+                        catch(err)
+                        {
+                             $.mobile.loading( 'hide' );
+                            alert("error: " + err);
+                           
+                        }
+
+                       
+
                     }
                     
                     $('#map_canvas').gmap('refresh');
