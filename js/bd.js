@@ -30,8 +30,7 @@ var verificarVersion = function (tx, results) {
 						actualizarBD(result);
 					},
 					error: function(XMLHttpRequest, textStatus, errorThrown) {
-					   
-					    	if(primeraVez==true)
+					    if(primeraVez==true)
 					    {
 					    	$.ajax({
 								contentType: "json",
@@ -67,14 +66,15 @@ var actualizarBD = function(json){
 			sentenciasEliminarTablas = new Array
 			(
 				"DROP TABLE IF EXISTS Directorio",
-				"DROP TABLE IF EXISTS Lugar",
+				"DROP TABLE IF EXISTS lugar",
 				"DROP TABLE IF EXISTS TipoDirectorio",
 				"DROP TABLE IF EXISTS TipoLugar",
-				"DROP TABLE IF EXISTS Tip",
+				"DROP TABLE IF EXISTS tip",
 				"DROP TABLE IF EXISTS CategoriaTip",
 				"DROP TABLE IF EXISTS Ruta",
 				"DROP TABLE IF EXISTS Version"
-			);		
+			);
+			
 			
 			sentenciasTablas = new Array
 			(
@@ -103,6 +103,7 @@ var actualizarBD = function(json){
 				tx.executeSql("INSERT INTO Ruta(idRuta,nombreRuta) VALUES (?,?)",[rutas[i].idRuta, rutas[i].nombreRuta]);
 			}
 			
+
 
 			for(i=0;i<tiposLugar.length;i++){
 				
@@ -145,6 +146,5 @@ var actualizarBD = function(json){
 			fecha = agno + "-" + mes + "-" + dia;
 			tx.executeSql('INSERT INTO Version(idVersion, fechaVersion) VALUES (?,?)',[1, fecha]);
 			vistaCategoriaTip = new VistaCategoriaTip();
-			$.mobile.loading( 'hide' );
 		});
 	};		

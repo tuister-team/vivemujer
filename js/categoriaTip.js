@@ -49,7 +49,7 @@
 								  	row = result.rows.item(i);
 								  	listaTips += "<li><h4>" + row.tip + "</h4>" + 
 								  				 "<p> Si tú o alguna mujer cercana a ti ha pasado por esto, han sido o están siendo víctimas " +
-								  				 "<a href='#' class='irRuta' data-transition='slide' data-ruta='"+ row.fkRuta + "''> Aquí te pueden ayudar</a></p></li>";
+								  				 "<a href='#' class='irRuta' data-ruta='"+ row.fkRuta + "''> Aquí te pueden ayudar</a></p></li>";
 								}
 
 								listaTips += "</ul>";

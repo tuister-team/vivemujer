@@ -11,15 +11,11 @@
   
 <body>
   	<!-- -------------------------------------------INICIO ------------------- -->
-
   	<div data-role="page" id="inicio" data-theme="d" data-title="Inicio">
     <a href="#acercade" data-rel="dialog" data-transition="pop">
 	<div data-role="header" id="banner" data-theme="c" style="max-height:100px; overflow:auto">
 	
-      <img src="img/banner.jpg" style="max-width:300px; width:100%; float: right; margin:0;"/>
-      
-                
-				
+      <img src="img/banner.jpg" style="max-width:300px; width:100%; float: right; margin:0;"/>	
 			</div>
             </a>
 			<div data-role="content" data-theme="d">
@@ -48,7 +44,7 @@
 
 		<div data-role="page" id="orientate">
 				<div data-role="header" id="banner" data-position="inline">
-					<a href="#" data-rel="back" data-role="button" data-transition="slide" data-icon="arrow-l" data-iconpos="left" data-theme='m'>volver</a>
+					<a href="#inicio" data-role="button" data-transition="pop" data-icon="arrow-l" data-iconpos="left" data-theme='m'>volver</a>
 					<h3>ORIENTATE</h3>
 				</div>
 				<div data-role="content">
@@ -59,22 +55,29 @@
 					<h3 class="titulo">MAPAS DE RUTAS <br/> DE ATENCIóN ANTIVIOLENCIA </h3>
 					<div class="ui-grid-c irMapa">
 						<div class="ui-block-a">
-							<a href="#mapaRutas" data-transition="slide" data-ruta="1"><img src="img/sexual.png" style="width:100%"/></a>
+							<a href="#mapaRutas" data-transition="slide" data-ruta="1"><img src="img/sexual.png" style="width:100%"/>
+							<br/>Sexual
+						</a>
 						</div>
 						<div class="ui-block-b">
-							<a href="#mapaRutas" data-transition="slide" data-ruta="5"><img src="img/intrafamiliar.png" style="width:100%"/></a>
+							<a href="#mapaRutas" data-transition="slide" data-ruta="5"><img src="img/intrafamiliar.png" style="width:100%"/>
+							<br/>Familiar</a>
 						</div>
 						<div class="ui-block-c">
-							<a href="#mapaRutas" data-transition="slide" data-ruta="8"><img src="img/tratadepersonas.png" style="width:100%"/></a>
+							<a href="#mapaRutas" data-transition="slide" data-ruta="8"><img src="img/tratadepersonas.png" style="width:100%"/>
+							Socio-<br/>política
+							</a>
 						</div>
 						<div class="ui-block-d">
-							<a href="#mapaRutas" data-transition="slide" data-ruta="9"><img src="img/sociopolitica.png" style="width:100%"/></a>
+							<a href="#mapaRutas" data-transition="slide" data-ruta="9"><img src="img/sociopolitica.png" style="width:100%"/>
+							Trata de personas
+							</a>
 						</div>
 					</div>
 				</div>
 			</div>
 
-	<!-- --------------------------------------- ALERTA DEL REPORTAR ----------------------- -->
+		<!-- --------------------------------------- ALERTA DEL REPORTAR ----------------------- -->
 
 	<div data-role="page" id="alertaReportar">
 		<div data-role="header" data-theme="m" id="banner">
@@ -87,6 +90,8 @@
 		</div>
 	</div>
 
+	<!-- ----------------------------------- ACERCA DE ------------ -->
+
 	<div data-role="page" id="acercade">
 		<div data-role="header" data-theme="m" id="banner">
 			<h3>Acerca de</h3>
@@ -94,16 +99,19 @@
 		<div data-role="content" data-theme="c" style="text-align:center; font-weight: 600;
 font-size: 15px; color: rgb(2, 75, 74);">
 	
-			<a href="#" data-role="button" data-theme="m" class="botonRojo">Vive mujer</a>
-           V 1.0
-           <a href="#" data-role="button" data-theme="m" class="botonRojo">Secretaria de las mujeres Medellín</a>
+			<img src="img/banner.jpg" style="width:80%; margin:auto"/>
+			<br/> V.1.0
+            <fieldset style="margin: 10px 47px; color: white; background-color: rgb(195,20,51); width:80%; margin-auto">
+                Alcaldia de Medellin<br/>
+                Secretaría de las mujeres <br/>               
+            </fieldset>
             
         ©2013 - Derechos reservados <br>
         
         Tenga en cuenta que esta aplicación requiere acceso a internet y puede consumir recursos de su plan de datos
 				<fieldset class="ui-grid-solo">
-						                            <img src="img/medellin.png" style="width:25%"/>
-<img src="img/mintic.png" style="width:70%"/>
+					 <img src="img/medellin.png" style="width:25%"/>
+					 <img src="img/mintic.png" style="width:70%"/>
  
 					</fieldset>
                     <fieldset>
@@ -116,22 +124,20 @@ font-size: 15px; color: rgb(2, 75, 74);">
                     </fieldset>      
 		</div>
 	</div>
+
 	<!-- -------------------------------------------REPORTAR ------------------- -->
 
 			<div data-role="page" id="reportar" data-title="Reportar">
 			<div data-role="header" id="banner" data-position="inline">
-				<a href="#inicio" data-role="button" data-transition="popup" data-icon="arrow-l" data-iconpos="left" data-theme='m'>volver</a>
+				<a href="#inicio" data-role="button" data-icon="arrow-l" data-iconpos="left" data-theme='m'>volver</a>
 				<h3>REPORTAR</h3>
 			</div>
 			<div data-role="content" data-theme="d">
-				<form id="formReportar" method="post" action="http://www.medellin.gov.co/api/v1/vivemujer/guardar.json">
 					<fieldset class="center-wrapper">
-						<h4>Fecha</h4>
-						<input type="date" id="reportar_fechaReportar" disabled>
 						<h4>Teléfono (fijo o movil) de contacto</h4>
-						<input type="tel" id="reportar_telefono" value=""/>
+						<input type="tel" id="reportar_telefono" name="telefono" value=""/>
 						<h4>Dirección o lugar donde ocurre el hecho </h4>
-						<input type="text" name="reportar_direccion" value=""/>
+						<input type="text" id="reportar_direccion" name="direccion" value=""/>
 							<h4 class="titulo" >Sexo </h4>
 							<fieldset data-role="controlgroup" data-type="horizontal">
 								<input type="radio" name="radioSexo" id="radioFemenino" value="F" checked="checked" />
@@ -143,46 +149,55 @@ font-size: 15px; color: rgb(2, 75, 74);">
 							<textarea id="reportar_descripcion" name="descripcion" rows="4"></textarea>
 					<fieldset class="ui-grid-a">
 							<div class="ui-block-a"><a href="#inicio" data-role="button" data-theme="c" data-rel="back">Cancelar</a></div>	
-							<div class="ui-block-b"><button type="button" onclick="$('#formReportar').submit()" data-role="button" data-theme='b' class="botonAzul">Reportar</a>  </div>
+							<div class="ui-block-b">
+								<input type="button" id="btnReportar" data-role="button" data-theme='b' class="botonAzul" value="reportar"/> 
+							</div>
 					</fieldset>
-				</form>
 			</div>	
+
 		</div> 
 		
 		<!------------ MAPA ---------------->
 		
 		<div data-role="page" id="mapaRutas" data-title="Mapa">
 			<div data-role="header" id="banner" data-position="inline">
-				<h1>Mapa de rutas</h1>
-				<a href="#" data-rel="back" data-icon="arrow-l" data-transition="slide" data-iconpos="left" data-transition="slide" data-theme='m'>Volver</a>
+				<h1>Mapa de rutas de atencion</h1>
+				<a href="#orientate" data-icon="arrow-l" data-iconpos="left" data-transition="slide" data-theme='m'>Volver</a>
 			</div>
 			<div data-role="content" data-theme="d" style="margin: 0px; padding: 0px;">
 				<div id="map_canvas"></div>
 				<div style="position: fixed; bottom: 0px; width:100%">
 					<div class="ui-grid-c irMapa">
-							<div class="ui-block-a">
-								<a href="#" data-ruta="1"><img src="img/sexual.png" style="width:100%"/></a>
-							</div>
-							<div class="ui-block-b">
-								<a href="#" data-ruta="5"><img src="img/intrafamiliar.png" style="width:100%"/></a>
-							</div>
-							<div class="ui-block-c">
-								<a href="#" data-ruta="8"><img src="img/tratadepersonas.png" style="width:100%"/></a>
-							</div>
-							<div class="ui-block-d">
-								<a href="#" data-ruta="9"><img src="img/sociopolitica.png" style="width:100%"/></a>
-							</div>
+						<div class="ui-block-a">
+							<a href="#mapaRutas" data-transition="slide" data-ruta="1"><img src="img/sexual.png" style="width:100%"/>
+							<br/>Sexual
+						</a>
+						</div>
+						<div class="ui-block-b">
+							<a href="#mapaRutas" data-transition="slide" data-ruta="5"><img src="img/intrafamiliar.png" style="width:100%"/>
+							<br/>Familiar</a>
+						</div>
+						<div class="ui-block-c">
+							<a href="#mapaRutas" data-transition="slide" data-ruta="8"><img src="img/tratadepersonas.png" style="width:100%"/>
+							Socio-<br/>política
+							</a>
+						</div>
+						<div class="ui-block-d">
+							<a href="#mapaRutas" data-transition="slide" data-ruta="9"><img src="img/sociopolitica.png" style="width:100%"/>
+							Trata de personas
+							</a>
+						</div>
 					</div>
 				</div>
-			</div>	
+			</div>		
 		</div> 
 		
 		
 		<!-- -------------------------- DIRECTORIO GENERAL ------------------>
 		
 			<div id="pageDirectorio" data-role="page" data-overlay-theme="a">
-				<div data-role="header" id="banner" data-position="inline">	
-					<a href="#" data-rel="back" data-transition="slide" data-role="button" data-icon="arrow-l" data-iconpos="left" data-theme=m>volver</a>
+				<div data-role="header" id="banner" data-position="inline">
+					<a href="#orientate" data-role="button" data-icon="arrow-l" data-iconpos="left" data-theme=m>volver</a>
 					<h3>DIRECTORIO</h3>
 				</div>
 				<div data-role="content">
@@ -211,8 +226,7 @@ font-size: 15px; color: rgb(2, 75, 74);">
 	<script type="text/javascript" src="js/plugins/ui/jquery.ui.map.overlays.js"></script>
 	<script type="text/javascript" src="js/plugins/underscore-min.js"></script>
 	<script type="text/javascript" src="js/plugins/backbone-min.js"></script>
-	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-	<script type="text/javascript" charset="utf-8" src="phonegap-toast.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova-1.9.0.js"></script>
 		
 	<script type="text/javascript" src="js/bd.js"></script>
 	<script type="text/javascript" src="js/mapas.js"></script>
@@ -224,13 +238,105 @@ font-size: 15px; color: rgb(2, 75, 74);">
 
 		function deviceready()
 		{
-			$.mobile.loader.prototype.options.text = "cargando";
-		  	$.mobile.loader.prototype.options.textVisible = true;
-		  	$.mobile.loader.prototype.options.theme = "a";
-		  	$.mobile.loader.prototype.options.html = "";
-
 			iniciarBD();
 		}
+
+		function enviarReporte(e){
+
+
+		if(navigator.connection.type != Connection.NONE)
+		{
+
+			$telefono = $("#reportar_telefono");
+			$direccion = $("#reportar_direccion");
+			$descripcion = $("textarea#reportar_descripcion");
+
+			if($telefono.val()==null || $telefono.val().length==0){
+
+				alert("Por favor ingrese un telefono");
+			}
+			else if($direccion.val()==null || $direccion.val().length==0){
+
+				alert("Por favor ingrese una dirección");
+			}
+			else 
+			{	if($descripcion.val() == null || $descripcion.val().length==0)
+					{
+
+						alert("Por favor ingrese una descripcion");
+					}
+				else
+					{
+
+						$.mobile.loading( 'show', {
+							text: "Reportando",
+							textVisible: true,
+							theme: "a",
+							textonly: false,
+							html: ""
+						});
+
+						navigator.geolocation.getCurrentPosition(
+				    			function(posicion)
+				    			{
+				    				reportar(posicion.coords.latitude, posicion.coords.longitude);
+				    
+				    			},
+				    			function(error)
+				    			{
+				    				reportar("6.246108", "-75.575136");
+				    			}
+				    		);					    	
+			    	}
+		    }
+		}			    	
+		 else{
+		 		$.mobile.loading( 'hide' );
+		 	    alert("Necesita conexión a internet");
+		 }
+	}
+
+	$("#btnReportar").click(enviarReporte);
+
+
+	function reportar(latitud, longitud)
+	{
+		var url = "http://www.medellin.gov.co/api/v1/vivemujer/guardar.json";
+		var fecha = getFecha()+"T"+getHora();
+		var sexo = ($("#radioFemenino").is(":checked"))?"F":"M";
+		var descripcion = $("textarea#reportar_descripcion").text();
+
+		$.ajax({
+			url: url,
+			type: "POST",
+			dataType: 'jsonp',
+			crossDomain: true,
+			data: {
+				telefonoContacto: $("#reportar_telefono").val(),
+				direccionContacto: $("#reportar_direccion").val(),
+				SexoContacto: sexo,
+				LatitudReporte: latitud,
+				LongitudReporte: longitud,
+				fechaReporte: fecha,
+				descripcion: descripcion
+				},
+			success:function(data,status)
+			{
+				$.mobile.loading( 'hide' );
+				alert(data.mensaje);
+				$.mobile.changePage("#inicio", {transition: "pop"});
+
+			},
+			error: function(result) {
+				$.mobile.loading( 'hide' );
+                 alert("Verifique su conexión a internet");
+
+                }
+		});
+
+		
+		
+	}
 	</script> 		
   </body>
 </html>

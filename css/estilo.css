@@ -133,9 +133,17 @@
 
 div.irMapa
 {
+	text-align: center;
 	width:100%;
 	margin: auto;
     max-width: 400px;
+}
+
+div.irMapa a.ui-link, div.irMapa a.ui-link:visited
+{
+	color:rgb(195,20,51);
+	text-decoration: none;
+
 }
 
 @media all and (min-height: 400px){	

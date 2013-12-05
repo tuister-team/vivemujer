@@ -16,9 +16,16 @@
     <author href="https://build.phonegap.com" email="support@phonegap.com">
         tUISter
     </author>
+    
+    <preference name="Fullscreen" value="true" />
+    <preference name="WebViewBounce" value="true" />
+    <preference name="Orientation" value="portrait" />
+    
+    <feature name="SplashScreen">
+        <param name="ios-package" value="CDVSplashScreen" />
+    </feature>
 
-    <icon src="ic_launcher.png" />
-
-    <gap:splash src="ic_launcher.png" />
+    <icon src="launcher.png" />
+    <gap:splash src="splash.png" />
 
 </widget>
