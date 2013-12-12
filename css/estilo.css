@@ -96,6 +96,10 @@
 
 	}
 
+	a{
+		text-decoration: blink;
+	}
+
 	h3.subtitulo{
 
 		text-align: center;
@@ -119,6 +123,10 @@
 {
 	width:100%;
 	margin: auto;
+}
+
+div#alertaReportar{
+	text-align: center;
 }
 
 .ui-mobile [data-role=content]
