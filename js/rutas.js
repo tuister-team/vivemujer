@@ -1,5 +1,4 @@
-	
-	
+
 	$("a#btnNavbarGeneral").on('click', function()
 	{
 		$("div#listaDirectorioComunas").hide();
@@ -39,11 +38,11 @@
 										for (i = 0; i < lenComisarias; i++) {
 										  	row = resultado.rows.item(i);
 										  	listaLugares += "<li class='ui-li ui-li-static ui-btn-up-d'><h2 class='ui-li-heading'>" + row.nombreLugar + "</h2>";
-										  	if(row.direccionLugar!=null)
+										  	if(row.direccionLugar !=null && row.direccionLugar != "null")
 										  	{
-										  		listaLugares += "<p class='ui-li-desc'><strong>"+ row.direccionLugar+ "</p>";
+										  		listaLugares += "<p class='ui-li-desc'><strong>"+ row.direccionLugar+ "</strong></p>";
 										  	}
-										  	if(row.telefonosLugar!=null)
+										  	if(row.telefonosLugar!=null && row.telefonosLugar != "null")
 										  	{
 										  		listaLugares += "<p class='ui-li-desc'>"+row.telefonosLugar +"</p>";
 											}
@@ -102,39 +101,3 @@
 
 		return false;
 	});
-
-	function getFecha()
-	{
-		//Fecha Actual
-		now = new Date();
-	    month = (now.getMonth() + 1);               
-	    day = now.getDate();
-
-	    
-	    if(month < 10) 
-	        month = "0" + month;
-	    if(day < 10) 
-	        day = "0" + day;
-	    
-	    fechaActual = now.getFullYear() + '-' + month + '-' + day;
-	    return fechaActual;
-	}
-
-	function getHora()
-	{
-
-		now = new Date();
-		hours = now.getHours();
-	    minutes = now.getMinutes();
-	    seconds = now.getSeconds();
-
-	    if(hours < 10) 
-	        hours = "0" + hours;
-	    if(minutes < 10) 
-	        minutes = "0" + hours;
-	    if(seconds < 10) 
-	        seconds = "0" + hours;
-
-	    horaActual = hours + ':' + minutes + ':' + seconds + ".000";
-	    return horaActual;
-	}

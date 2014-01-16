@@ -1,5 +1,3 @@
-<style>
-	
 	a{
 		color: rgb(0,170,167);
 		text-decoration: none;
@@ -154,16 +152,35 @@ div.irMapa a.ui-link, div.irMapa a.ui-link:visited
 
 }
 
+@media all and (max-height: 420px){	
+	
+	div#opcionesPrincipales img.imgPrincipal
+	{
+		height: 70px;
+	}
+	#map_canvas {
+		min-height: 200px;
+	}
+}
+
 @media all and (min-height: 400px){	
 	.ui-mobile [data-role=content]{
 		min-height:230px;
 	}
-	#map_canvas{
-		min-height:370px;
-	}
 	div#opcionesPrincipales
 	{
 		min-height:200px;
+	}
+
+	#map_canvas {
+		min-height: 230px;
+	}
+}
+
+@media all and (min-height: 459px){	
+	
+	#map_canvas {
+		min-height: 290px;
 	}
 }
 
@@ -173,7 +190,7 @@ div.irMapa a.ui-link, div.irMapa a.ui-link:visited
 		padding: 10px;
 	}
 	#map_canvas{
-		min-height:470px;
+		min-height:400px;
 	}
 	div#opcionesPrincipales > .ui-grid-solo
 	{
@@ -210,4 +227,3 @@ div.irMapa a.ui-link, div.irMapa a.ui-link:visited
 	}
 
 }
-</style>

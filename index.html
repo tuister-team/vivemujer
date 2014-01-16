@@ -12,7 +12,7 @@
 <body>
   	<!-- -------------------------------------------INICIO ------------------- -->
   	<div data-role="page" id="inicio" data-theme="d" data-title="Inicio">
-    <a href="#acercade" data-rel="dialog" data-transition="pop">
+    <a href="#acercade" data-rel="dialog" data-transition="fade">
 	<div data-role="header" id="banner" data-theme="c" style="max-height:100px; overflow:auto">
 	
       <img src="img/banner.jpg" style="max-width:300px; width:100%; float: right; margin:0;"/>	
@@ -21,14 +21,14 @@
 			<div data-role="content" data-theme="d">
 				<div class="center-wrapper" id="opcionesPrincipales">
 					<div class="ui-grid-solo clear" >
-					<a href="#orientate" data-transition="slide" id="divOrientate"> <img src="img/orientate.png" />
+					<a href="#orientate" data-transition="slide" id="divOrientate"> <img src="img/orientate.png" class='imgPrincipal'/>
 					<br/>
 					<h3 class="subtitulo">Oriéntate</h3>
 					 </a>
 					</div>
 					<div class="ui-grid-solo clear" id="divReporta">
 						<a href="#alertaReportar" data-rel="dialog" data-transition="pop" class="ui-grid-solo clear">
-							<img src="img/reporta.png" />
+							<img src="img/reporta.png" class='imgPrincipal'/>
 						<br/>
 						<h3 class="subtitulo">Reporta</h3>
 						</a>
@@ -44,7 +44,7 @@
 
 		<div data-role="page" id="orientate">
 				<div data-role="header" id="banner" data-position="inline">
-					<a href="#inicio" data-role="button" data-transition="pop" data-icon="arrow-l" data-iconpos="left" data-theme='m'>volver</a>
+					<a href="#inicio" data-role="button" data-transition="slide" data-direction="reverse" data-icon="arrow-l" data-iconpos="left" data-theme='m'>volver</a>
 					<h3>ORIENTATE</h3>
 				</div>
 				<div data-role="content">
@@ -87,12 +87,12 @@
 			<h5>Con el reporte de esta información no estás denunciando;  estás suministrando información para que las instituciones y autoridades del estado intervengan y tomen medidas preventivas por la vida de las mujeres</h5>
 			<div class="ui-grid-a">
 				<div class="ui-block-a">
-					<a href="#reportar" data-transition="slide"><img src="img/SI.png" style="width:100%"/>
+					<a href="#reportar" data-transition="fade"><img src="img/SI.png" style="width:100%"/>
 						<br/>Si, deseo reportar
 					</a>
 				</div>
 				<div class="ui-block-b">
-					<a href="#inicio" data-transition="pop"><img src="img/NO.png" style="width:100%"/>
+					<a href="#inicio" data-transition="fade" data-direction="reverse"><img src="img/NO.png" style="width:100%"/>
 						<br/>No reportaré
 					</a>
 				</div>
@@ -160,7 +160,7 @@ font-size: 15px; color: rgb(2, 75, 74);">
 					<fieldset class="ui-grid-a">
 							<div class="ui-block-a"><a href="#inicio" data-role="button" data-theme="c" data-rel="back">Cancelar</a></div>	
 							<div class="ui-block-b">
-								<input type="button" id="btnReportar" data-role="button" data-theme='b' class="botonAzul" value="reportar"/> 
+								<input type="button" id="btnReportar" onclick="enviarReporte()" data-role="button" data-theme='b' class="botonAzul" value="reportar"/> 
 							</div>
 					</fieldset>
 			</div>	
@@ -172,7 +172,7 @@ font-size: 15px; color: rgb(2, 75, 74);">
 		<div data-role="page" id="mapaRutas" data-title="Mapa">
 			<div data-role="header" id="banner" data-position="inline">
 				<h1>Mapa de rutas de atencion</h1>
-				<a href="#orientate" data-icon="arrow-l" data-iconpos="left" data-transition="slide" data-theme='m'>Volver</a>
+				<a href="#orientate" data-icon="arrow-l" data-iconpos="left" data-transition="slide" data-direction="reverse" data-theme='m'>Volver</a>
 			</div>
 			<div data-role="content" data-theme="d" style="margin: 0px; padding: 0px;">
 				<div id="map_canvas"></div>
@@ -207,7 +207,7 @@ font-size: 15px; color: rgb(2, 75, 74);">
 		
 			<div id="pageDirectorio" data-role="page" data-overlay-theme="a">
 				<div data-role="header" id="banner" data-position="inline">
-					<a href="#orientate" data-role="button" data-icon="arrow-l" data-iconpos="left" data-theme=m>volver</a>
+					<a href="#orientate" data-role="button" data-icon="arrow-l" data-iconpos="left" data-transition='pop' data-direction="reverse" data-theme=m>volver</a>
 					<h3>DIRECTORIO</h3>
 				</div>
 				<div data-role="content">
@@ -227,7 +227,7 @@ font-size: 15px; color: rgb(2, 75, 74);">
 <!---------------------------------------------- COMIENZO DE SCRIPT ------------------------------------------- -->
 
     <script src="jquery.mobile/jquery-1.7.2.min"></script>
-	<script src="jquery.mobile/jquery.mobile-1.3.2.js"></script>
+	<script src="jquery.mobile/jquery.mobile-1.3.2.min"></script>
 	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places"></script>
 
@@ -236,12 +236,14 @@ font-size: 15px; color: rgb(2, 75, 74);">
 	<script type="text/javascript" src="js/plugins/ui/jquery.ui.map.overlays.js"></script>
 	<script type="text/javascript" src="js/plugins/underscore-min.js"></script>
 	<script type="text/javascript" src="js/plugins/backbone-min.js"></script>
-	<script type="text/javascript" charset="utf-8" src="cordova-1.9.0.js"></script>
 		
 	<script type="text/javascript" src="js/bd.js"></script>
 	<script type="text/javascript" src="js/mapas.js"></script>
 	<script type="text/javascript" src="js/categoriaTip.js"></script>
-	<script type="text/javascript" src="js/script.js"></script>	
+	<script type="text/javascript" src="js/rutas.js"></script>	
+	<script type="text/javascript" src="js/reportar.js"></script>	
+	<script type="text/javascript" src="js/scripts.js"></script>	
+	
 	<script>
 		var conexion = 0;
 		document.addEventListener("deviceready", deviceready, false);
@@ -250,103 +252,6 @@ font-size: 15px; color: rgb(2, 75, 74);">
 		{
 			iniciarBD();
 		}
-
-		function enviarReporte(e){
-
-
-		if(navigator.connection.type != Connection.NONE)
-		{
-
-			$telefono = $("#reportar_telefono");
-			$direccion = $("#reportar_direccion");
-			$descripcion = $("textarea#reportar_descripcion");
-
-			if($telefono.val()==null || $telefono.val().length==0){
-
-				alert("Por favor ingrese un telefono");
-			}
-			else if($direccion.val()==null || $direccion.val().length==0){
-
-				alert("Por favor ingrese una dirección");
-			}
-			else 
-			{	if($descripcion.val() == null || $descripcion.val().length==0)
-					{
-
-						alert("Por favor ingrese una descripcion");
-					}
-				else
-					{
-
-						$.mobile.loading( 'show', {
-							text: "Reportando",
-							textVisible: true,
-							theme: "a",
-							textonly: false,
-							html: ""
-						});
-
-						navigator.geolocation.getCurrentPosition(
-				    			function(posicion)
-				    			{
-				    				reportar(posicion.coords.latitude, posicion.coords.longitude);
-				    
-				    			},
-				    			function(error)
-				    			{
-				    				reportar("6.246108", "-75.575136");
-				    			}
-				    		);					    	
-			    	}
-		    }
-		}			    	
-		 else{
-		 		$.mobile.loading( 'hide' );
-		 	    alert("Necesita conexión a internet");
-		 }
-	}
-
-	$("#btnReportar").click(enviarReporte);
-
-
-	function reportar(latitud, longitud)
-	{
-		var url = "http://www.medellin.gov.co/api/v1/vivemujer/guardar.json";
-		var fecha = getFecha()+"T"+getHora();
-		var sexo = ($("#radioFemenino").is(":checked"))?"F":"M";
-		var descripcion = $("textarea#reportar_descripcion").text();
-
-		$.ajax({
-			url: url,
-			type: "POST",
-			dataType: 'jsonp',
-			crossDomain: true,
-			data: {
-				telefonoContacto: $("#reportar_telefono").val(),
-				direccionContacto: $("#reportar_direccion").val(),
-				SexoContacto: sexo,
-				LatitudReporte: latitud,
-				LongitudReporte: longitud,
-				fechaReporte: fecha,
-				descripcion: descripcion
-				},
-			success:function(data,status)
-			{
-				$.mobile.loading( 'hide' );
-				alert(data.mensaje);
-				$.mobile.changePage("#inicio", {transition: "pop"});
-
-			},
-			error: function(result) {
-				$.mobile.loading( 'hide' );
-                 alert("Verifique su conexión a internet");
-
-                }
-		});
-
-		
-		
-	}
 	</script> 		
   </body>
 </html>

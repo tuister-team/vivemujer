@@ -40,6 +40,8 @@ var actualizarPosicionActual = function()
 
 $(document).on('click', '.irMapa a', function(event) {
  
+    if(navigator.connection.type != Connection.NONE)
+    {
         var $map =  $('#map_canvas');
         $map.gmap('clear', 'markers');
 
@@ -75,7 +77,6 @@ $(document).on('click', '.irMapa a', function(event) {
 
                                   if(row.latitudLugar != "null" && row.longitudLugar != "null")
                                     {
-                                        alert(row.latitudLugar + "..." + row.longitudLugar);
                                         var position = new google.maps.LatLng(row.latitudLugar, row.longitudLugar);
                                         var content = "";
                                         content += "<h2 class='ui-li-heading'>" + row.nombreLugar + "</h2>";
@@ -100,7 +101,7 @@ $(document).on('click', '.irMapa a', function(event) {
                         catch(err)
                         {
                              $.mobile.loading( 'hide' );
-                            alert("error: " + err);
+                             mostrarAlert("Error", err);
                            
                         }
 
@@ -112,5 +113,12 @@ $(document).on('click', '.irMapa a', function(event) {
 
                 });
             });
+        }
+        else{
+            
+            mostrarAlert("Alerta", "Verifique su conexión a internet");
+            return false;
+        }
+
    });
 });
