@@ -117,6 +117,13 @@
 		
 	}
 
+
+	div.botonesAlerta
+	{
+		max-width: 300px;
+		margin: auto;
+	}
+
 .ui-mobile [data-role=page], ui-page
 {
 	width:100%;
