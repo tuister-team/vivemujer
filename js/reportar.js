@@ -9,19 +9,19 @@ function enviarReporte(){
 
 			if($telefono.val()==null || $telefono.val().length==0){
 
-				mostrarAlert("Datos incompletos", "Por favor ingrese un telŽfono");
+				mostrarAlert("Datos incompletos", "Por favor ingrese un teléfono");
 				$telefono.focus();
 			}
 			else if($direccion.val()==null || $direccion.val().length==0){
 
-				mostrarAlert("Datos incompletos", "Por favor ingrese una direcci—n");
+				mostrarAlert("Datos incompletos", "Por favor ingrese una dirección");
 				$direccion.focus();
 			}
 			else 
 			{	if($descripcion.val() == null || $descripcion.val().length==0)
 					{
 
-						mostrarAlert("Datos incompletos", "Por favor ingrese una descripci—n");
+						mostrarAlert("Datos incompletos", "Por favor ingrese una descripción");
 						descripcion.focus();
 					}
 				else
@@ -46,7 +46,7 @@ function enviarReporte(){
 		else
 		{
 				$.mobile.loading( 'hide' );
-		 	    mostrarAlert("Error", "Necesita conexi—n a internet");
+		 	    mostrarAlert("Alerta", "Necesita conexión a internet");
 		 }
 	}
 
@@ -80,7 +80,7 @@ function enviarReporte(){
 					},
 				error: function(result) {
 					$.mobile.loading( 'hide' );
-	                 mostrarAlert("Error", "Verifique su conexi—n a internet");
+	                 mostrarAlert("Error", "No se pudo conectar con el servidor");
 
 	                }
 			});
