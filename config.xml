@@ -20,13 +20,6 @@
     <preference name="WebViewBounce" value="true" />
     <preference name="Orientation" value="portrait" />
     
-    <feature name="SplashScreen">
-        <param name="ios-package" value="CDVSplashScreen" />
-    </feature>
-    <feature name="NetworkStatus">
-        <param name="ios-package" value="CDVConnection" />
-    </feature>
-    
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.device-motion" />
     <gap:plugin name="org.apache.cordova.device-orientation" />
@@ -52,5 +45,41 @@
     <icon src="launcher.png" gap:platform="ios" width="144" height="144" />
     
     <access origin="*"/>
+
+    <feature name="LocalStorage">
+        <param name="ios-package" value="CDVLocalStorage"/>
+    </feature>
+    <feature name="SplashScreen">
+        <param name="ios-package" value="CDVSplashScreen" />
+    </feature>
+    <feature name="NetworkStatus">
+        <param name="ios-package" value="CDVConnection" />
+    </feature>
+    <feature name="Geolocation">
+        <param name="ios-package" value="CDVLocation" />
+    </feature>
+
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+    </feature>
+    <feature name="NetworkStatus">
+        <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+    </feature>
+    <feature name="Geolocation">
+        <param name="android-package" value="org.apache.cordova.geolocation.GeoBroker" />
+    </feature>
+    <feature name="Storage">
+        <param name="android-package" value="org.apache.cordova.Storage" />
+    </feature>
+
+    <plugins>
+        <plugin name="NetworkStatus" value="org.apache.cordova.NetworkManager" />
+        <plugin name="NetworkStatus" value="CDVConnection" />
+        <plugin name="Geolocation" value="org.apache.cordova.GeoBroker" />
+        <plugin name="Geolocation" value="CDVLocation" />
+        <plugin name="Storage" value="org.apache.cordova.Storage" />
+        <plugin name="SplashScreen" value="CDVSplashScreen" />
+        <plugin name="SplashScreen" value="org.apache.cordova.SplashScreen"/>
+    </plugins>
 
 </widget>
