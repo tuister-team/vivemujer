@@ -9,19 +9,19 @@ function enviarReporte(){
 
 			if($telefono.val()==null || $telefono.val().length==0){
 
-				mostrarAlert("Datos incompletos", "Por favor ingrese un teléfono");
+				mostrarAlert("Datos incompletos", "Por favor ingrese un telÃ©fono");
 				$telefono.focus();
 			}
 			else if($direccion.val()==null || $direccion.val().length==0){
 
-				mostrarAlert("Datos incompletos", "Por favor ingrese una dirección");
+				mostrarAlert("Datos incompletos", "Por favor ingrese una direcciÃ³n");
 				$direccion.focus();
 			}
 			else 
 			{	if($descripcion.val() == null || $descripcion.val().length==0)
 					{
 
-						mostrarAlert("Datos incompletos", "Por favor ingrese una descripción");
+						mostrarAlert("Datos incompletos", "Por favor ingrese una descripciÃ³n");
 						descripcion.focus();
 					}
 				else
@@ -46,7 +46,7 @@ function enviarReporte(){
 		else
 		{
 				$.mobile.loading( 'hide' );
-		 	    mostrarAlert("Alerta", "Necesita conexión a internet");
+		 	    mostrarAlert("Alerta", "Necesita conexiÃ³n a internet");
 		 }
 	}
 
