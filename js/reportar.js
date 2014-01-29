@@ -74,7 +74,7 @@ function enviarReporte(){
 				success:function(data,status)
 					{
 						$.mobile.loading( 'hide' );
-						mostrarAlert("Reportar" + data, data.mensaje);
+						mostrarAlert("Reportar", data.mensaje);
 						$.mobile.changePage("#inicio", {transition: "pop"});
 
 					},
