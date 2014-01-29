@@ -7,8 +7,7 @@
 	width: 100%;
 	bottom: 0px;
 	z-index: 1000;
-	}
-	
+	}	
 	div#panico  a[data-theme=m], div#banner a[data-theme=m], a[data-theme=m].botonRojo, button[data-theme=m].botonRojo
 	{
 		border: 1px solid rgb(49, 7, 15) /*{b-bup-border}*/;
@@ -82,42 +81,27 @@
 	 
 	.ui-collapsible-heading .ui-btn-text
 	{
-			color:rgb(0,170,167)
+		font-size: 15px;
+		color:rgb(0,170,167)
 
 	}
-	
-
 	h3.titulo{
 
 		text-align: center;
 		color:rgb(195,20,51);
 
 	}
-
-	a{
-		text-decoration: blink;
-	}
-
 	h3.subtitulo{
-
 		text-align: center;
 		color:rgb(0,170,167);
-
 	}
-
-	h1, h2, h3, h4, h5, h6{
-
+	h1, h2, h3, h4, h5, h6{	
 		color:rgb(195,20,51);
-	}
-
+	]
 	fieldset#formularioReportar > div.ui-block-a
 	{
-
-		text-align: center;
-		
+		text-align: center;	
 	}
-
-
 	div.botonesAlerta
 	{
 		max-width: 300px;
