@@ -2,7 +2,7 @@ var conexion=0;
 
 function iniciarBD(){
 
-		conexion =  window.openDatabase("approsa", "1.0", "approsa", 200000);
+		conexion =  window.openDatabase("vivemujer", "1.0", "vivemujer", 200000);
 		conexion.transaction(function(tx)
 		{
 			tx.executeSql("create TABLE IF NOT EXISTS Version(idVersion integer primary key, fechaVersion text)");
@@ -17,8 +17,7 @@ var verificarVersion = function (tx, results) {
 		var primeraVez = results.rows.length==0;
 		tx.executeSql("SELECT idVersion FROM Version WHERE idVersion=1 and julianday('now') - julianday(fechaVersion) > 5; ", [], function (tx, results2) {
 	
-				var len = results2.rows.length;
-				
+				var len = results2.rows.length;			
 				//Si lleva mas de 5 dias busca una actualizacion
 				if(len>0 || primeraVez)
 				{
