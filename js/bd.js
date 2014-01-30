@@ -1,19 +1,16 @@
 var conexion=0;
 
 function iniciarBD(){
-
 		conexion =  window.openDatabase("vivemujer", "1.0", "vivemujer", 200000);
 		conexion.transaction(function(tx)
 		{
 			tx.executeSql("create TABLE IF NOT EXISTS Version(idVersion integer primary key, fechaVersion text)");
 			tx.executeSql("SELECT idVersion FROM Version WHERE idVersion=1;", [], verificarVersion);
-
 		});
 }
 
 var verificarVersion = function (tx, results) {
 		// Primera vez que ingresa a la aplicación
-
 		var primeraVez = results.rows.length==0;
 		tx.executeSql("SELECT idVersion FROM Version WHERE idVersion=1 and julianday('now') - julianday(fechaVersion) > 5; ", [], function (tx, results2) {
 	
@@ -39,7 +36,6 @@ var verificarVersion = function (tx, results) {
 									actualizarBD(data);
 								}
 							});
-
 					    }   
 				   }
 				 });	
@@ -73,8 +69,7 @@ var actualizarBD = function(json){
 				"DROP TABLE IF EXISTS Ruta",
 				"DROP TABLE IF EXISTS Version"
 			);
-			
-			
+				
 			sentenciasTablas = new Array
 			(
 				"create TABLE IF NOT EXISTS Version(idVersion integer primary key, fechaVersion text)",
@@ -102,8 +97,6 @@ var actualizarBD = function(json){
 				tx.executeSql("INSERT INTO Ruta(idRuta,nombreRuta) VALUES (?,?)",[rutas[i].idRuta, rutas[i].nombreRuta]);
 			}
 			
-
-
 			for(i=0;i<tiposLugar.length;i++){
 				
 				tx.executeSql("INSERT INTO TipoLugar(idTipoLugar, tipoLugar) VALUES (?,?)",[tiposLugar[i].idTipoLugar, tiposLugar[i].tipoLugar]);

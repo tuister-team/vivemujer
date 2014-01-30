@@ -25,7 +25,7 @@
 			this.collection = new ListaCategoriaTip();
 			var self = this;
 			$("div#tips").html('');
-			conexion = window.openDatabase("approsa", "1.0", "approsa", 200000);
+			conexion = window.openDatabase("vivemujer", "1.0", "vivemujer", 200000);
 			conexion.transaction(function(transaction) {
 			   transaction.executeSql('SELECT * FROM CategoriaTip;', [],
 				 function(tx, result) {
