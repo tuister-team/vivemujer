@@ -19,6 +19,8 @@
     <preference name="Fullscreen" value="true" />
     <preference name="WebViewBounce" value="true" />
     <preference name="Orientation" value="portrait" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarBackgroundColor" value="#00AAA7">
     
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.device-motion" />
@@ -58,6 +60,9 @@
     <feature name="Geolocation">
         <param name="ios-package" value="CDVLocation" />
     </feature>
+    <feature name="StatusBar">
+        <param name="ios-package" onload="true" value="CDVStatusBar" />
+    </feature>
 
     <feature name="SplashScreen">
         <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
@@ -71,6 +76,7 @@
     <feature name="Storage">
         <param name="android-package" value="org.apache.cordova.Storage" />
     </feature>
+
 
     <plugins>
         <plugin name="NetworkStatus" value="org.apache.cordova.NetworkManager" />

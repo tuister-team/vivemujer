@@ -36,9 +36,9 @@
 	    if(hours < 10) 
 	        hours = "0" + hours;
 	    if(minutes < 10) 
-	        minutes = "0" + hours;
+	        minutes = "0" + minutes;
 	    if(seconds < 10) 
-	        seconds = "0" + hours;
+	        seconds = "0" + seconds;
 
 	    horaActual = hours + ':' + minutes + ':' + seconds + ".000";
 	    return horaActual;

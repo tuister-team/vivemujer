@@ -76,12 +76,10 @@ function enviarReporte(){
 						$.mobile.loading( 'hide' );
 						mostrarAlert("Reportar", data.mensaje);
 						$.mobile.changePage("#inicio", {transition: "pop"});
-
 					},
 				error: function(result) {
 					$.mobile.loading( 'hide' );
 	                 mostrarAlert("Error", "No se pudo conectar con el servidor");
-
 	                }
 			});
 	}

@@ -131,6 +131,8 @@ div#alertaReportar{
 #imgInformacion
 {
 	max-height:100px;
+	width: auto;
+	max-width: 75px;
 	height:100%;
 	float: left;
 	margin:0;
@@ -159,10 +161,10 @@ div.irMapa a.ui-link, div.irMapa a.ui-link:visited
 
 }
 
-@media all and (max-width: 400px){#imgInformacion{max-height: 82px;}#imgBanner{max-width: 250px;}}
-@media all and (max-width: 330px){#imgInformacion{max-height: 67px;}#imgBanner{max-width: 200px;}}
-@media all and (max-width: 280px){#imgInformacion{max-height: 53px;}#imgBanner{max-width: 160px;}}
-@media all and (max-width: 220px){#imgInformacion{max-height: 43px;}#imgBanner{max-width: 130px;}}
+@media all and (max-width: 400px){#imgInformacion{max-height: 82px; max-width: 62px;}#imgBanner{max-width: 250px;}}
+@media all and (max-width: 330px){#imgInformacion{max-height: 67px; max-width: 50px;}#imgBanner{max-width: 200px;}}
+@media all and (max-width: 280px){#imgInformacion{max-height: 53px; max-width: 40px;}#imgBanner{max-width: 160px;}}
+@media all and (max-width: 220px){#imgInformacion{max-height: 43px; max-width: 32px;}#imgBanner{max-width: 130px;}}
 
 @media all and (max-height: 420px){	
 	
