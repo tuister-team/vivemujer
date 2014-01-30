@@ -20,7 +20,7 @@
     <preference name="WebViewBounce" value="true" />
     <preference name="Orientation" value="portrait" />
     <preference name="StatusBarOverlaysWebView" value="false" />
-    <preference name="StatusBarBackgroundColor" value="#00AAA7">
+    <preference name="StatusBarBackgroundColor" value="#00AAA7" />
     
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.device-motion" />
